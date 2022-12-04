@@ -1,4 +1,4 @@
-package com.learn;
+package com.general;
 // Documented in word file
 public class Pint1To50WithoutLoop {
 

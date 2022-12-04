@@ -1,4 +1,4 @@
-package com.learn;
+package com.general;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

@@ -1,4 +1,4 @@
-package com.learn;
+package com.general;
 
 import java.util.Scanner;
 // Documented in word file
