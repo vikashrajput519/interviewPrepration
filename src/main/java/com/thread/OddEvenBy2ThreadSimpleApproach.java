@@ -4,27 +4,32 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class OddEvenBy2ThreadSimpleApproach {
 
-    static AtomicInteger atomicNumber = new AtomicInteger(1);
+    private static AtomicInteger atomicInteger = new AtomicInteger(1);
+    private static String evenThreadName = "Even Thread";
+    private static String oddThreadName = "Odd Thread";
 
     public static void main(String[] args) {
-        Runnable print = () -> {
-            while (atomicNumber.get() < 10) {
-                synchronized (atomicNumber) {
-                    if ((atomicNumber.get() % 2 == 0) && "Even".equals(Thread.currentThread().getName())) {
-                        System.out.println("Even" + ":" + atomicNumber.getAndIncrement());
-                    }
-                    else {System.out.println("Odd" + ":" + atomicNumber.getAndIncrement());
+
+        Runnable oddEvenPrinter = () -> {
+
+            while(atomicInteger.get() < 10){
+                synchronized (atomicInteger){
+                    if(atomicInteger.get() % 2 == 0 && evenThreadName.equals(Thread.currentThread().getName())){
+                        System.out.println(Thread.currentThread().getName()+ " : "+atomicInteger.getAndIncrement());
+                    }else if(atomicInteger.get() % 2 != 0 && oddThreadName.equals(Thread.currentThread().getName())){
+                        System.out.println(Thread.currentThread().getName()+ " : "+atomicInteger.getAndIncrement());
                     }
                 }
             }
+
         };
 
-        Thread t1 = new Thread(print);
-        t1.setName("Even");
-        t1.start();
-        Thread t2 = new Thread(print);
-        t2.setName("Odd");
-        t2.start();
 
+        Thread t1 = new Thread(oddEvenPrinter);
+        t1.setName(evenThreadName);
+        Thread t2 = new Thread(oddEvenPrinter);
+        t2.setName(oddThreadName);
+        t1.start();
+        t2.start();
     }
 }

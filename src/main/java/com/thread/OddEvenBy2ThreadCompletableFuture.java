@@ -1,8 +1,11 @@
 package com.thread;
 
+import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.IntPredicate;
+import java.util.function.Predicate;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class OddEvenBy2ThreadCompletableFuture {
 
@@ -23,6 +26,8 @@ public class OddEvenBy2ThreadCompletableFuture {
     }
 
     public static void printNumber(IntPredicate condition){
+
+        //Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).mapToInt(e1 -> e1).filter(condition).forEach(OddEvenBy2ThreadCompletableFuture::execute);
         IntStream.rangeClosed(1, 10).filter(condition).forEach(OddEvenBy2ThreadCompletableFuture::execute);
     }
 
