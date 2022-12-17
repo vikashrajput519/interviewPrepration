@@ -1,4 +1,4 @@
-package com.general;
+package com.askedInInterview;
 
 import java.util.Stack;
 // Documented in word file

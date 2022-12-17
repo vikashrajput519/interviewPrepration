@@ -1,4 +1,4 @@
-package com.general;
+package com.askedInInterview;
 
 // Documented in word file
 public class NumberReverse {
