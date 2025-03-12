@@ -1,4 +1,4 @@
-package com.general2;
+package com.askedInInterview;
 
 import java.util.Random;
 

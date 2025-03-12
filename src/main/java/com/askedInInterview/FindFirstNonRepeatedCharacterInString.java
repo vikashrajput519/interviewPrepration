@@ -1,4 +1,4 @@
-package com.general2;
+package com.askedInInterview;
 
 import java.util.LinkedHashMap;
 import java.util.function.Function;
@@ -22,6 +22,8 @@ public class FindFirstNonRepeatedCharacterInString {
                 .map(entry -> entry.getKey())
                 .findFirst()
                 .get();
+
+
         System.out.println(result);
     }
 }
