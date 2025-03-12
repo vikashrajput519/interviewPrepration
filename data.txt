@@ -1,0 +1,7 @@
+id    name       qty     price
+101   Mobile      1      50000
+102   watch       2      4000
+103   TV          1      75000
+104   HeadSet     3      15000
+105   Books       1      1
+                  8      100000

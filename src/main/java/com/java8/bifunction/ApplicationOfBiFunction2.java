@@ -1,0 +1,28 @@
+package com.java8.bifunction;
+
+import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class ApplicationOfBiFunction2 {
+
+    public static void main(String[] args) {
+
+        List<Integer> listWithData1 = Stream.of(1, 3, 4, 6, 7, 9, 19).collect(Collectors.toList());
+        List<Integer> listWithData2 = Stream.of(11, 3, 43, 6, 7, 19).collect(Collectors.toList());
+
+        BiFunction<List<Integer>, List<Integer>, List<Integer>> biFunction = (list1, list2) -> Stream.of(list1, list2).flatMap(List::stream).distinct().collect(Collectors.toList());
+
+        // This is function to use andThen method of BiFunction
+        Function<List<Integer>, List<Integer>> sortFunction = (rowList) -> rowList.stream().sorted().collect(Collectors.toList());
+
+        List<Integer> listAfterMergeUnsorted = biFunction.apply(listWithData1, listWithData2);
+        System.out.println("Un-Sorted = "+ listAfterMergeUnsorted);
+
+        List<Integer> listAfterMergeSorted = biFunction.andThen(sortFunction).apply(listWithData1, listWithData2);
+        System.out.println("Sorted = "+ listAfterMergeSorted);
+
+    }
+}
